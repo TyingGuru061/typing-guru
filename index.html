@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Typing Guru</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <h1>Typing Guru</h1>
+        <nav>
+            <button onclick="showPage('beginner')">Beginner</button>
+            <button onclick="showPage('intermediate')">Intermediate</button>
+            <button onclick="showPage('pro')">Pro</button>
+            <button onclick="showPage('signup')">Sign Up</button>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section id="home">
+            <h2>Welcome to Typing Guru</h2>
+            <p>Beginner - Start with simple sentences.</p>
+            <p>Intermediate - Add punctuation and speed.</p>
+            <p>Pro - Master complex typing challenges.</p>
+            <p>Sign up to track your progress!</p>
+        </section>
+
+        <section id="lesson-page" class="hidden">
+            <aside class="sidebar">
+                <h3>Difficulty</h3>
+                <select id="difficulty" onchange="changeDifficulty()">
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="pro">Pro</option>
+                </select>
+
+                <h3>Lessons</h3>
+                <ul id="lesson-list"></ul>
+            </aside>
+
+            <div class="typing-area">
+                <div id="lesson-text"></div>
+                <textarea id="typing-input" placeholder="Start typing here..." oninput="checkTyping()"></textarea>
+                <div class="stats">
+                    <p>Time: <span id="time">0</span>s</p>
+                    <p>Speed: <span id="speed">0</span> WPM</p>
+                    <p>Accuracy: <span id="accuracy">0</span>%</p>
+                    <p>Errors: <span id="errors">0</span></p>
+                </div>
+                <button onclick="restartLesson()">Restart</button>
+            </div>
+
+            <aside class="sidebar">
+                <h3>Key Heatmap</h3>
+                <div id="heatmap"></div>
+            </aside>
+        </section>
+
+        <section id="signup" class="hidden">
+            <h2>Sign Up</h2>
+            <input type="text" id="username" placeholder="Enter your name" />
+            <button onclick="signUp()">Start Tracking</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Typing Guru</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
