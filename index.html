@@ -1,73 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Typing Guru</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+
+<div class="container">
+
+    <!-- LEFT SIDEBAR -->
+    <div class="sidebar">
+        <h2>Lessons</h2>
+        <div id="lesson-list"></div>
+
+        <div class="stats">
+            <h2>Stats</h2>
+            <p><strong>Today:</strong></p>
+            <p>Time Spent: <span id="today-time">0 min</span></p>
+            <p>Avg Speed: <span id="today-avg-speed">0 WPM</span></p>
+            <p>Top Speed: <span id="today-top-speed">0 WPM</span></p>
+            <p>Avg Accuracy: <span id="today-avg-acc">0%</span></p>
+            <p>Top Accuracy: <span id="today-top-acc">0%</span></p>
+
+            <p><strong>All Time:</strong></p>
+            <p>Time Spent: <span id="all-time-time">0 min</span></p>
+            <p>Avg Speed: <span id="all-time-avg-speed">0 WPM</span></p>
+            <p>Top Speed: <span id="all-time-top-speed">0 WPM</span></p>
+            <p>Avg Accuracy: <span id="all-time-avg-acc">0%</span></p>
+            <p>Top Accuracy: <span id="all-time-top-acc">0%</span></p>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main">
         <h1>Typing Guru</h1>
-        <nav>
-            <button onclick="showPage('beginner')">Beginner</button>
-            <button onclick="showPage('intermediate')">Intermediate</button>
-            <button onclick="showPage('pro')">Pro</button>
-            <button onclick="showPage('signup')">Sign Up</button>
-        </nav>
-    </header>
+        <div id="text-display"></div>
+        <textarea id="input-area" placeholder="Start typing here..." rows="4"></textarea>
+        <button id="restart-btn">Restart Lesson</button>
+    </div>
 
-    <main id="main-content">
-        <section id="home">
-            <h2>Welcome to Typing Guru</h2>
-            <p>Beginner - Start with simple sentences.</p>
-            <p>Intermediate - Add punctuation and speed.</p>
-            <p>Pro - Master complex typing challenges.</p>
-            <p>Sign up to track your progress!</p>
-        </section>
+</div>
 
-        <section id="lesson-page" class="hidden">
-            <aside class="sidebar">
-                <h3>Difficulty</h3>
-                <select id="difficulty" onchange="changeDifficulty()">
-                    <option value="beginner">Beginner</option>
-                    <option value="intermediate">Intermediate</option>
-                    <option value="pro">Pro</option>
-                </select>
-
-                <h3>Lessons</h3>
-                <ul id="lesson-list"></ul>
-            </aside>
-
-            <div class="typing-area">
-                <div id="lesson-text"></div>
-                <textarea id="typing-input" placeholder="Start typing here..." oninput="checkTyping()"></textarea>
-                <div class="stats">
-                    <p>Time: <span id="time">0</span>s</p>
-                    <p>Speed: <span id="speed">0</span> WPM</p>
-                    <p>Accuracy: <span id="accuracy">0</span>%</p>
-                    <p>Errors: <span id="errors">0</span></p>
-                </div>
-                <button onclick="restartLesson()">Restart</button>
-            </div>
-
-            <aside class="sidebar">
-                <h3>Key Heatmap</h3>
-                <div id="heatmap"></div>
-            </aside>
-        </section>
-
-        <section id="signup" class="hidden">
-            <h2>Sign Up</h2>
-            <input type="text" id="username" placeholder="Enter your name" />
-            <button onclick="signUp()">Start Tracking</button>
-        </section>
-    </main>
-
-    <footer>
-        <p>© 2025 Typing Guru</p>
-    </footer>
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
